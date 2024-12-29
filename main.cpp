@@ -15,10 +15,33 @@ int main() {
 
     // Store user menu option
     int option;
+    double balance =  500.00;
     
     showMenu();
-    cout << "Please make a selection:" << endl;
+    cout << "Please make a selection: ";
     cin >> option;
+
+    switch (option) {
+        case 1:
+            cout << "Your balance is $" << balance << "." << endl;
+            break;
+        case 2: 
+            cout << "Deposit amount: ";
+            double depositAmount;
+            cin >> depositAmount;
+            balance += depositAmount;
+            break;
+        case 3: 
+            cout << "Withdrawal amount: ";
+            double withdrawalAmount;
+            cin >> withdrawalAmount;
+            if(withdrawalAmount <= balance) {
+                balance -= depositAmount;
+            } else {
+                cout << "Insufficient funds in account." << endl;
+            }
+            break;
+    };
 
     return 0;
 }
