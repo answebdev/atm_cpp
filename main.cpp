@@ -8,6 +8,7 @@ void showMenu() {
     cout << "1. Check Balance" << endl;
     cout << "2. Deposit" << endl;
     cout << "3. Withdrawal" << endl;
+    cout << "4. Exit" << endl;
     cout << "************************" << endl;
 };
 
@@ -17,9 +18,13 @@ int main() {
     int option;
     double balance =  500.00;
     
+    do {
     showMenu();
     cout << "Please make a selection: ";
     cin >> option;
+
+    // Clear the console
+    system("cls");
 
     switch (option) {
         case 1:
@@ -36,12 +41,13 @@ int main() {
             double withdrawalAmount;
             cin >> withdrawalAmount;
             if(withdrawalAmount <= balance) {
-                balance -= depositAmount;
+                balance -= withdrawalAmount;
             } else {
                 cout << "Insufficient funds in account." << endl;
             }
             break;
     };
+    } while(option !=4);
 
     return 0;
 }
